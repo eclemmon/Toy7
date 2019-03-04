@@ -3,7 +3,7 @@
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 import tkinter
-
+from tkinter import scrolledtext
 
 def receive():
     """Handles receiving of messages."""
@@ -41,8 +41,8 @@ scrollbar = tkinter.Scrollbar(messages_frame)  # To navigate through past messag
 msg_list = tkinter.Listbox(messages_frame, height=15, width=50, yscrollcommand=scrollbar.set)
 scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
-msg_list.pack()
-messages_frame.pack()
+msg_list.pack(fill="both", expand=True)
+messages_frame.pack(fill="both", expand=True, padx=(15,0), pady=10)
 
 entry_field = tkinter.Entry(top, textvariable=my_msg)
 entry_field.bind("<Return>", send)
